@@ -1,11 +1,11 @@
+import os
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 
-GOOGLE_FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSfGVlA5w1xd2y2n5ojVdb2eEjq3fiQAwFx3o7lbG1_" \
-                   "FdHXhgA/viewform?usp=sf_link"
+GOOGLE_FORM_LINK = os.environ.get("your_google_form_link")
 
 
 class FormFilling:
@@ -16,7 +16,7 @@ class FormFilling:
         self.driver = webdriver.Chrome(service=self.chrome_driver_path)
 
     def open_form(self, addr, cost, url):
-        # opening page
+        # opening google form
         self.driver.get(GOOGLE_FORM_LINK)
         time.sleep(3)
 
